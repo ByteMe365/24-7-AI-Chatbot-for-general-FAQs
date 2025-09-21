@@ -36,7 +36,16 @@ Sample FAQ Data:
 For the complete FAQ data with all 12 items, see the file DynamoDB/ChatbotFAQ.json in this repository.
 Each FAQ item follows those JSON format.
 
+Notes:
+-Table uses on-demand billing mode (pay per request)
+-No secondary indexes required for basic FAQ functionality
+-Items can be updated or added through the AWS Console or programmatically
+-Consider adding more FAQ items based on common customer inquiries
 
+Troubleshooting:
+-Permission Issues: Ensure your AWS user/role has DynamoDB read/write permissions
+-Table Not Found: Verify you're in the correct AWS region
+-Data Loading Issues: Check JSON formatting when adding items manually
 
 
 
