@@ -2,7 +2,7 @@
     "Items": [
         {
             "question6": {
-                "S": "How many days do I have to return something?"
+                "S": "How many days do I have to return something???????"
             },
             "question3": {
                 "S": "What is your replacement policy?"
@@ -353,7 +353,7 @@
                 "S": "I want to talk to customer service."
             },
             "answer": {
-                "S": "Yes! You can chat with our staff directly between 9AM and 10PM. After 10PM, please leave your message and we’ll respond the next day."
+                "S": "Yes! You can chat with our staff directly between 9AM and 10PM. After 10PM, please leave your message and weÂ’ll respond the next day."
             },
             "category ": {
                 "S": "support "
