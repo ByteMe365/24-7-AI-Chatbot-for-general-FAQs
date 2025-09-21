@@ -77,8 +77,8 @@ Search logic example:
 User Input: "store hours"
 Split Words: ["store", "hours"]
 Search Process:
-  - Check FAQ 1: "What are your store hours?" → Contains "store" 
-  - Match found! Return corresponding answer
+-Check FAQ 1: "What are your store hours?" → Contains "store" 
+-Match found! Return corresponding answer
 
 
 
