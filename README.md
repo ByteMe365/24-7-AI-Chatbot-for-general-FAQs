@@ -291,6 +291,12 @@ curl -X POST "https://<api-id>.execute-api.us-east-1.amazonaws.com/faq" \
 ```
 
 
+# 4. Amazon s3
+Amazon S3 can be used to host static websites by storing files like index.html, CSS, and JavaScript. 
+
+When static website hosting is enabled on a bucket, AWS gives a Website Endpoint URL (put our link here ) The bucket policy is written in JSON to allow public read access (s3:GetObject) so anyone can load those files.
+
+When a user (or telegram chatbot: BytemeRetail_bot) opens that URL, S3 simply serves the HTML file directly from the bucket — no servers or backend needed.
 
 
 
