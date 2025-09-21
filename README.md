@@ -1,7 +1,7 @@
 # 24-7-AI-Chatbot-for-general-FAQs
 Retail businesses often struggle to meet customer expectations for round-the-clock support. traditional customer service channels require significant manpower, making it difficult to respond to common inquiries outside business hours. Our Software solution tries to bridge this gap.
 
-# 1. How the DynamoDB-Based FAQ Chatbot System Works
+# 1. How-the-DynamoDB-Based-FAQ-Chatbot-System-Works
 Architecture Overview:
 User Question → Lambda Function → DynamoDB → Search FAQs → Return Answer
 
