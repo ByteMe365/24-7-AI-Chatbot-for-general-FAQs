@@ -20,18 +20,18 @@ Step 1: Create DynamoDB Table
     -Click "Create table"
 
 Step 2: Populate FAQ Data-Using AWS Console 
-    1. Access Your Table
-      -Go to DynamoDB Console
-      -Click on your "ChatbotFAQ" table
-      -Click "Explore table items"
+1. Access Your Table
+  -Go to DynamoDB Console
+  -Click on your "ChatbotFAQ" table
+  -Click "Explore table items"
+   
+2. Add FAQ Items
+  -Click "Create item"
+  -Switch to "JSON view" (toggle at top)
+  -Copy and paste each JSON item from repository DynamoDB/ChatbotFAQ.json
+  -Click "Create item"
+  -Repeat for all 20 items
       
-    2. Add FAQ Items
-      -Click "Create item"
-      -Switch to "JSON view" (toggle at top)
-      -Copy and paste each JSON item from repository DynamoDB/ChatbotFAQ.json
-      -Click "Create item"
-      -Repeat for all 20 items
-
 Sample FAQ Data:
 For the complete FAQ data with all 12 items, see the file DynamoDB/ChatbotFAQ.json in this repository.
 Each FAQ item follows those JSON format.
