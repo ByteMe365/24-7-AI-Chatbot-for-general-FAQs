@@ -184,7 +184,7 @@ Performance Characteristics
 Monitoring and Logging
 
 
-5.The function includes comprehensive logging:
+The function includes comprehensive logging:
 
   - User input received
 
