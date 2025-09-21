@@ -83,6 +83,7 @@ User Input: "store hours"
 ```
 
 Response Handling
+
 Successful Match:
 ``` json
 {
