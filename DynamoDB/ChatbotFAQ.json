@@ -276,235 +276,299 @@
           }
         },
         {
-            "question5": {
-                "S": "Mobile payments allowed?"
-            },
-            "question": {
-                "S": "What payment methods do you accept?"
-            },
-            "question6": {
-                "S": "What kind of payments do you support?"
-            },
-            "question3": {
-                "S": "Can I pay with card?"
-            },
-            "question4": {
-                "S": "Do you accept e-wallets?"
-            },
-            "question2": {
-                "S": "Do you take cash?"
-            },
-            "category": {
-                "S": "payment"
-            },
-            "id": {
-                "S": "faq008"
-            },
-            "answer": {
-                "S": "We accept all major credit cards/debit cards,PayPal, Apple Pay, e-wallets like GrabPay, Touch 'n Go, and Boost,Google Pay, and cash in-store."
-            }
+          "id": {
+            "S": "faq011"
+          },
+          "answer": {
+            "S": "You can sign up for restock notifications on the product page. We'll email you when it's back in stock."
+          },
+          "category": {
+            "S": "inventory"
+          },
+          "question1": {
+            "S": "What if an item is out of stock?"
+          },
+          "question2": {
+            "S": "Item not available?"
+          },
+          "question3": {
+            "S": "Do you restock?"
+          },
+          "question4": {
+            "S": "Product unavailable?"
+          },
+          "question5": {
+            "S": "When will this be available again?"
+          },
+          "question6": {
+            "S": "Out of stock products?"
+          }
         },
         {
-            "question ": {
-                "S": "Do you sell alcohol?"
-            },
-            "category": {
-                "S": "alcohol sale"
-            },
-            "question 5": {
-                "S": "Alcohol in your store"
-            },
-            "question 4": {
-                "S": "Do you sell wine?"
-            },
-            "id": {
-                "S": "faq016"
-            },
-            "question 3": {
-                "S": "Do you have liquor?"
-            },
-            "question 2": {
-                "S": "Beer available?"
-            },
-            "answer": {
-                "S": "Yes, selected stores sell alcohol. Availability depends on local regulations."
-            }
+          "id": {
+            "S": "faq012"
+          },
+          "answer": {
+            "S": "Join our rewards program to earn points on every purchase and get exclusive member discounts."
+          },
+          "category": {
+            "S": "rewards"
+          },
+          "question1": {
+            "S": "Do you have a reward program?"
+          },
+          "question2": {
+            "S": "How do I earn points?"
+          },
+          "question3": {
+            "S": "Do you have member rewards?"
+          },
+          "question4": {
+            "S": "Is there a membership program?"
+          },
+          "question5": {
+            "S": "Do you offer rewards benefits?"
+          },
+          "question6": {
+            "S": "Rewards card available?"
+          }
         },
         {
-            "question": {
-                "S": "Can I chat with a staff member directly?"
-            },
-            "question 6": {
-                "S": "Customer support chat"
-            },
-            "question 5": {
-                "S": "Talk to human agent"
-            },
-            "question 4": {
-                "S": "Need live chat support"
-            },
-            "id": {
-                "S": "faq013"
-            },
-            "question 3": {
-                "S": "Can I speak to a person?"
-            },
-            "question 2": {
-                "S": "I want to talk to customer service."
-            },
-            "answer": {
-                "S": "Yes! You can chat with our staff directly between 9AM and 10PM. After 10PM, please leave your message and well respond the next day."
-            },
-            "category ": {
-                "S": "support "
-            }
+          "id": {
+            "S": "faq013"
+          },
+          "answer": {
+            "S": "Yes! You can chat with our staff directly/live between 9AM and 10PM. After 10PM, please leave your message and we’ll respond the next day."
+          },
+          "category": {
+            "S": "support"
+          },
+          "question1": {
+            "S": "Can I chat with a staff member directly?"
+          },
+          "question2": {
+            "S": "I want to talk to customer service."
+          },
+          "question3": {
+            "S": "Can I speak to a person?"
+          },
+          "question4": {
+            "S": "Need live chat support?"
+          },
+          "question5": {
+            "S": "Talk to human agent?"
+          },
+          "question6": {
+            "S": "Customer support chat?"
+          }
         },
         {
-            "question5": {
-                "S": "Do you charge for shipping?"
-            },
-            "question": {
-                "S": "Do you offer free shipping?"
-            },
-            "question6": {
-                "S": "Cost for delivery?"
-            },
-            "question3": {
-                "S": "Is delivery free?"
-            },
-            "question4": {
-                "S": "Any shipping charges?"
-            },
-            "question2": {
-                "S": "Free delivery available?"
-            },
-            "category": {
-                "S": " Free shipping"
-            },
-            "id": {
-                "S": "faq003"
-            },
-            "answer": {
-                "S": "Yes! Free shipping on orders over $50.For orders under $50, the shipping fee is $5.99."
-            }
+          "id": {
+            "S": "faq014"
+          },
+          "answer": {
+            "S": "Yes, most of our food products are muslim friendly and halal-certified. Look for the halal logo on packaging."
+          },
+          "category": {
+            "S": "Halal options "
+          },
+          "question1": {
+            "S": "Is your food halal?"
+          },
+          "question2": {
+            "S": "Do you have halal-certified products?"
+          },
+          "question3": {
+            "S": "Halal meals available?"
+          },
+          "question4": {
+            "S": "Is the food muslim friendly?"
+          },
+          "question5": {
+            "S": "Do you carry halal items?"
+          }
         },
         {
-            "question ": {
-                "S": "Is your food halal?"
-            },
-            "question 5": {
-                "S": "Do you carry halal items?"
-            },
-            "question 4": {
-                "S": "Is the food halal friendly?"
-            },
-            "id": {
-                "S": "faq014"
-            },
-            "question 3": {
-                "S": "Halal meals available?"
-            },
-            "question 2": {
-                "S": "Do you have halal-certified products?"
-            },
-            "answer": {
-                "S": "Yes, most of our food products are halal-certified. Look for the halal logo on packaging."
-            },
-            "category ": {
-                "S": "Halal options "
-            }
+          "id": {
+            "S": "faq015"
+          },
+          "answer": {
+            "S": "Yes, we have a wide range of vegetarian-friendly meals and snacks."
+          },
+          "category": {
+            "S": "vegetarian options "
+          },
+          "question1": {
+            "S": "Vegetarian meals available?"
+          },
+          "question2": {
+            "S": "Do you sell meat-free items?"
+          },
+          "question3": {
+            "S": "Veg-friendly options?"
+          },
+          "question4": {
+            "S": "Vegetarian snacks"
+          },
+          "question5": {
+            "S": "Vegetarian choices"
+          },
+          "question6": {
+            "S": "Do you have vegetarian food?"
+          }
         },
         {
-            "question5": {
-                "S": "Business hours"
-            },
-            "question": {
-                "S": "what are you store hours?"
-            },
-            "question6": {
-                "S": "What time are you open today?"
-            },
-            "question3": {
-                "S": "Opening hours"
-            },
-            "question4": {
-                "S": "When do you close?"
-            },
-            "question2": {
-                "S": "What time do you open?"
-            },
-            "category": {
-                "S": "store-info"
-            },
-            "id": {
-                "S": "faq001"
-            },
-            "question7": {
-                "S": "What is your operating hours?"
-            },
-            "answer": {
-                "S": "Our store is open on Monday-Saturday at 9AM-9PM, and on Sunday at 10AM-7PM"
-            }
+          "id": {
+            "S": "faq016"
+          },
+          "answer": {
+            "S": "Yes, selected stores sell alcohol. Availability depends on local regulations."
+          },
+          "category": {
+            "S": "alcohol sale"
+          },
+          "question1": {
+            "S": "Do you sell alcohol?"
+          },
+          "question2": {
+            "S": "Beer available?"
+          },
+          "question3": {
+            "S": "Do you have liquor?"
+          },
+          "question4": {
+            "S": "Do you sell wine?"
+          },
+          "question5": {
+            "S": "Alcohol in your store?"
+          }
         },
         {
-            "question5": {
-                "S": "When will this be available again?"
-            },
-            "question": {
-                "S": "What if an item is out of stock?"
-            },
-            "question6": {
-                "S": "Out of stock products?"
-            },
-            "question3": {
-                "S": "Do you restock items?"
-            },
-            "question4": {
-                "S": "Product unavailable?"
-            },
-            "question2": {
-                "S": "Item not available?"
-            },
-            "category": {
-                "S": "inventory"
-            },
-            "id": {
-                "S": "faq011"
-            },
-            "answer": {
-                "S": "You can sign up for restock notifications on the product page. We'll email you when it's back in stock."
-            }
+          "id": {
+            "S": "faq017"
+          },
+          "answer": {
+            "S": "Yes, we sell cigarettes and tobacco products in compliance with legal age restrictions."
+          },
+          "category": {
+            "S": "cigarette and tobacco sale "
+          },
+          "question1": {
+            "S": "Do you sell cigarettes or tobacco?"
+          },
+          "question2": {
+            "S": "Do you sell cigarettes?"
+          },
+          "question3": {
+            "S": "Do you have cigars?"
+          },
+          "question4": {
+            "S": "Do you have smoking products?"
+          },
+          "question5": {
+            "S": "Tobacco products available?"
+          }
         },
         {
-            "question5": {
-                "S": "Do you offer loyalty benefits?"
-            },
-            "question": {
-                "S": "Do you have a loyalty program?"
-            },
-            "question6": {
-                "S": "Rewards card available?"
-            },
-            "question3": {
-                "S": "Do you have member rewards?"
-            },
-            "question4": {
-                "S": "Is there a membership program?"
-            },
-            "question2": {
-                "S": "How do I earn points?"
-            },
-            "category": {
-                "S": "rewards"
-            },
-            "id": {
-                "S": "faq012"
-            },
-            "answer": {
-                "S": "Yes! Join our rewards program to earn points on every purchase and get exclusive member discounts."
-            }
+          "id": {
+            "S": "faq018"
+          },
+          "answer": {
+            "S": "Please contact the store staff directly. We maintain a lost & found for customer belongings."
+          },
+          "category": {
+            "S": "lost-found"
+          },
+          "question1": {
+            "S": "What should I do if I lost something in your store?"
+          },
+          "question2": {
+            "S": "Lost item in store"
+          },
+          "question3": {
+            "S": "I left something in your store "
+          },
+          "question4": {
+            "S": "Where do I report lost items?"
+          },
+          "question5": {
+            "S": "I dropped something in store"
+          }
+        },
+        {
+          "id": {
+            "S": "faq019"
+          },
+          "answer": {
+            "S": "Here’s the product page:  http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com  Tap the link to open it in your browser."
+          },
+          "category": {
+            "S": "links"
+          },
+          "link": {
+            "S": "http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com"
+          },
+          "question1": {
+            "S": "Can you send me a link to the store's page?"
+          },
+          "question2": {
+            "S": "share the website"
+          },
+          "question3": {
+            "S": "give me the store link"
+          },
+          "question4": {
+            "S": "direct me to the website"
+          },
+          "question5": {
+            "S": "can you send me the menu?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq020"
+          },
+          "answer": {
+            "S": "Hey there! 👋 How can I help you today?"
+          },
+          "category": {
+            "S": "greetings"
+          },
+          "question1": {
+            "S": "hey "
+          },
+          "question10": {
+            "S": "good afternoon"
+          },
+          "question2": {
+            "S": "afternoon"
+          },
+          "question3": {
+            "S": "evening"
+          },
+          "question4": {
+            "S": "hi"
+          },
+          "question5": {
+            "S": "hello"
+          },
+          "question6": {
+            "S": "yo"
+          },
+          "question7": {
+            "S": "whats up"
+          },
+          "question8": {
+            "S": "sup"
+          },
+          "question9": {
+            "S": "morning "
+          },
+          "question911": {
+            "S": "good evening "
+          }
         }
     ],
-    "Count": 18,
-    "ScannedCount": 18
+    "Count": 20,
+    "ScannedCount": 20
 }
