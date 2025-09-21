@@ -34,45 +34,74 @@
         },
         {
             "question5": {
-                "S": "what are the steps I need to follow to add a coupon code?"
+                "S": "can you send me the menu?"
             },
-            "question": {
-                "S": "How do I use a coupon code?"
+            "question3": {
+                "S": "give me the store link"
+            },
+            "question4": {
+                "S": "direct me to the website"
+            },
+            "question1": {
+                "S": "Can you send me a link to the store's page?"
+            },
+            "question2": {
+                "S": "share the website"
+            },
+            "category": {
+                "S": "links"
+            },
+            "link": {
+                "S": "http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com"
+            },
+            "id": {
+                "S": "faq019"
+            },
+            "answer": {
+                "S": "Here’s the product page:  http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com  Tap the link to open it in your browser."
+            }
+        },
+        {
+            "question5": {
+                "S": "what are the steps I need to follow to add a coupon code?"
             },
             "question3": {
                 "S": "where should i add the coupon code?"
             },
             "question4": {
-                "S": "how manytimes can i use the coupon code?"
+                "S": "how many times can i use the coupon code?"
+            },
+            "question1": {
+                "S": "How do I use a coupon code?"
             },
             "question2": {
-                "S": "when do i need to add the cupon code?"
+                "S": "when do i need to add the coupons code?"
             },
             "category": {
-                "S": "coupons"
+                "S": "coupon"
             },
             "id": {
                 "S": "faq010"
             },
             "answer": {
-                "S": "Enter your coupon code at checkout in the 'Promo Code' field before completing your purchase.Each  coupon code can be used only one time."
+                "S": "Enter your coupon code at checkout in the 'Promo Code' field before completing your purchase. Each coupon code can be used only one time."
             }
         },
         {
             "question5": {
-                "S": "Is it possible to cancel after buying"
-            },
-            "question": {
-                "S": "How do I cancel my order"
+                "S": "Is it possible to cancel after buying?"
             },
             "question3": {
-                "S": "I want to cancel my order"
+                "S": "I want to cancel my order?"
             },
             "question4": {
-                "S": "Cancel order please"
+                "S": "Cancel order please?"
+            },
+            "question1": {
+                "S": "How do I cancel my order?"
             },
             "question2": {
-                "S": "Can I cancel my purchase"
+                "S": "Can I cancel my purchase?"
             },
             "category": {
                 "S": "cancel"
@@ -85,426 +114,26 @@
             }
         },
         {
-            "question ": {
-                "S": "What should I do if I lost something in your store?"
-            },
-            "question 5": {
-                "S": "I dropped something in store"
-            },
-            "question 4": {
-                "S": "Where do I report lost items?"
-            },
-            "id": {
-                "S": "faq018"
-            },
-            "question 3": {
-                "S": "I left something in your store "
-            },
-            "question 2": {
-                "S": "Lost item in store"
-            },
-            "answer": {
-                "S": "Please contact the store staff directly. We maintain a lost & found for customer belongings."
-            },
-            "category ": {
-                "S": "lost & found \n"
-            }
-        },
-        {
             "question5": {
-                "S": "Price comparison policy?"
-            },
-            "question": {
-                "S": "Do you price match?"
-            },
-            "question3": {
-                "S": "Can I get the same price as another store?"
-            },
-            "question4": {
-                "S": "Will you match prices?"
-            },
-            "question2": {
-                "S": "Do you match competitor prices?"
-            },
-            "category": {
-                "S": "pricing"
-            },
-            "id": {
-                "S": "faq005"
-            },
-            "answer": {
-                "S": "Yes, we price match identical items from major competitors. Bring in the competitor's ad or show us their website."
-            }
-        },
-        {
-            "question ": {
-                "S": "Do you have vegetarian food?"
-            },
-            "question 6": {
-                "S": "Vegetarian choices"
-            },
-            "question 5": {
-                "S": "Vegetarian snacks"
-            },
-            "question 4": {
-                "S": "Veg-friendly options?"
-            },
-            "id": {
-                "S": "faq015"
-            },
-            "question 3": {
-                "S": "Do you sell meat-free items?"
-            },
-            "question 2": {
-                "S": "Vegetarian meals available?"
-            },
-            "answer": {
-                "S": "Yes, we have a wide range of vegetarian-friendly meals and snacks."
-            },
-            "category ": {
-                "S": "vegetarian options "
-            }
-        },
-        {
-            "question5": {
-                "S": "How do I know where my package is?"
-            },
-            "question": {
-                "S": "How can I track my order?"
+                "S": "hello"
             },
             "question10": {
-                "S": "how to stop my order?"
+                "S": "good afternoon"
             },
             "question6": {
-                "S": "Check my order progress?"
+                "S": "yo"
             },
             "question3": {
-                "S": "Track delivery?"
+                "S": "evening"
             },
             "question4": {
-                "S": "Order tracking status?"
+                "S": "hi"
+            },
+            "question1": {
+                "S": "hey "
             },
             "question2": {
-                "S": "Where is my order?"
-            },
-            "category": {
-                "S": "orders"
-            },
-            "id": {
-                "S": "faq004"
+                "S": "afternoon"
             },
             "answer": {
-                "S": "You can track your order using the tracking number sent to your email, or log into your account on our website."
-            }
-        },
-        {
-            "question": {
-                "S": "Do you sell cigarettes or tobacco?"
-            },
-            "question 6": {
-                "S": "Tobacco products available?"
-            },
-            "question 5": {
-                "S": "Do you have smoking products?"
-            },
-            "id": {
-                "S": "faq017"
-            },
-            "question 3": {
-                "S": "Do you have cigars?"
-            },
-            "question 2": {
-                "S": "Do you sell cigarettes?"
-            },
-            "answer": {
-                "S": "Yes, we sell cigarettes and tobacco products in compliance with legal age restrictions."
-            },
-            "category ": {
-                "S": "cigarette and tobacco sale "
-            }
-        },
-        {
-            "question5": {
-                "S": "how long is the gift cards valid ?"
-            },
-            "question": {
-                "S": "Do you have gift cards?"
-            },
-            "question4": {
-                "S": "Gift cards are available?"
-            },
-            "question2": {
-                "S": "Can I buy a gift card?"
-            },
-            "category": {
-                "S": "gift-cards"
-            },
-            "id": {
-                "S": "faq007"
-            },
-            "answer": {
-                "S": "Yes! Gift cards are available in-store and online in amounts from $10 to $500. The gift cards expires within 2 months."
-            }
-        },
-        {
-            "question5": {
-                "S": "How does curbside pickup work?"
-            },
-            "question": {
-                "S": "Do you offer curbside pickup?"
-            },
-            "question6": {
-                "S": "Can I stay in the car for pickup?"
-            },
-            "question3": {
-                "S": "Drive-thru pickup option?"
-            },
-            "question4": {
-                "S": "Collect my order from the car?"
-            },
-            "question2": {
-                "S": "Can I pick up my order outside?"
-            },
-            "category": {
-                "S": "pickup"
-            },
-            "id": {
-                "S": "faq009"
-            },
-            "answer": {
-                "S": "Yes! Order online and select curbside pickup. We'll bring your order to your car within 15 minutes."
-            }
-        },
-        {
-            "question5": {
-                "S": "Mobile payments allowed?"
-            },
-            "question": {
-                "S": "What payment methods do you accept?"
-            },
-            "question6": {
-                "S": "What kind of payments do you support?"
-            },
-            "question3": {
-                "S": "Can I pay with card?"
-            },
-            "question4": {
-                "S": "Do you accept e-wallets?"
-            },
-            "question2": {
-                "S": "Do you take cash?"
-            },
-            "category": {
-                "S": "payment"
-            },
-            "id": {
-                "S": "faq008"
-            },
-            "answer": {
-                "S": "We accept all major credit cards/debit cards,PayPal, Apple Pay, e-wallets like GrabPay, Touch 'n Go, and Boost,Google Pay, and cash in-store."
-            }
-        },
-        {
-            "question ": {
-                "S": "Do you sell alcohol?"
-            },
-            "category": {
-                "S": "alcohol sale"
-            },
-            "question 5": {
-                "S": "Alcohol in your store"
-            },
-            "question 4": {
-                "S": "Do you sell wine?"
-            },
-            "id": {
-                "S": "faq016"
-            },
-            "question 3": {
-                "S": "Do you have liquor?"
-            },
-            "question 2": {
-                "S": "Beer available?"
-            },
-            "answer": {
-                "S": "Yes, selected stores sell alcohol. Availability depends on local regulations."
-            }
-        },
-        {
-            "question": {
-                "S": "Can I chat with a staff member directly?"
-            },
-            "question 6": {
-                "S": "Customer support chat"
-            },
-            "question 5": {
-                "S": "Talk to human agent"
-            },
-            "question 4": {
-                "S": "Need live chat support"
-            },
-            "id": {
-                "S": "faq013"
-            },
-            "question 3": {
-                "S": "Can I speak to a person?"
-            },
-            "question 2": {
-                "S": "I want to talk to customer service."
-            },
-            "answer": {
-                "S": "Yes! You can chat with our staff directly between 9AM and 10PM. After 10PM, please leave your message and we’ll respond the next day."
-            },
-            "category ": {
-                "S": "support "
-            }
-        },
-        {
-            "question5": {
-                "S": "Do you charge for shipping?"
-            },
-            "question": {
-                "S": "Do you offer free shipping?"
-            },
-            "question6": {
-                "S": "Cost for delivery?"
-            },
-            "question3": {
-                "S": "Is delivery free?"
-            },
-            "question4": {
-                "S": "Any shipping charges?"
-            },
-            "question2": {
-                "S": "Free delivery available?"
-            },
-            "category": {
-                "S": " Free shipping"
-            },
-            "id": {
-                "S": "faq003"
-            },
-            "answer": {
-                "S": "Yes! Free shipping on orders over $50.For orders under $50, the shipping fee is $5.99."
-            }
-        },
-        {
-            "question ": {
-                "S": "Is your food halal?"
-            },
-            "question 5": {
-                "S": "Do you carry halal items?"
-            },
-            "question 4": {
-                "S": "Is the food halal friendly?"
-            },
-            "id": {
-                "S": "faq014"
-            },
-            "question 3": {
-                "S": "Halal meals available?"
-            },
-            "question 2": {
-                "S": "Do you have halal-certified products?"
-            },
-            "answer": {
-                "S": "Yes, most of our food products are halal-certified. Look for the halal logo on packaging."
-            },
-            "category ": {
-                "S": "Halal options "
-            }
-        },
-        {
-            "question5": {
-                "S": "Business hours"
-            },
-            "question": {
-                "S": "what are you store hours?"
-            },
-            "question6": {
-                "S": "What time are you open today?"
-            },
-            "question3": {
-                "S": "Opening hours"
-            },
-            "question4": {
-                "S": "When do you close?"
-            },
-            "question2": {
-                "S": "What time do you open?"
-            },
-            "category": {
-                "S": "store-info"
-            },
-            "id": {
-                "S": "faq001"
-            },
-            "question7": {
-                "S": "What is your operating hours?"
-            },
-            "answer": {
-                "S": "Our store is open on Monday-Saturday at 9AM-9PM, and on Sunday at 10AM-7PM"
-            }
-        },
-        {
-            "question5": {
-                "S": "When will this be available again?"
-            },
-            "question": {
-                "S": "What if an item is out of stock?"
-            },
-            "question6": {
-                "S": "Out of stock products?"
-            },
-            "question3": {
-                "S": "Do you restock items?"
-            },
-            "question4": {
-                "S": "Product unavailable?"
-            },
-            "question2": {
-                "S": "Item not available?"
-            },
-            "category": {
-                "S": "inventory"
-            },
-            "id": {
-                "S": "faq011"
-            },
-            "answer": {
-                "S": "You can sign up for restock notifications on the product page. We'll email you when it's back in stock."
-            }
-        },
-        {
-            "question5": {
-                "S": "Do you offer loyalty benefits?"
-            },
-            "question": {
-                "S": "Do you have a loyalty program?"
-            },
-            "question6": {
-                "S": "Rewards card available?"
-            },
-            "question3": {
-                "S": "Do you have member rewards?"
-            },
-            "question4": {
-                "S": "Is there a membership program?"
-            },
-            "question2": {
-                "S": "How do I earn points?"
-            },
-            "category": {
-                "S": "rewards"
-            },
-            "id": {
-                "S": "faq012"
-            },
-            "answer": {
-                "S": "Yes! Join our rewards program to earn points on every purchase and get exclusive member discounts."
-            }
-        }
-    ],
-    "Count": 18,
-    "ScannedCount": 18
-}
+                "S": 

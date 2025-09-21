@@ -6,6 +6,7 @@ from urllib.parse import parse_qs
 from botocore.exceptions import ClientError
 import base64, traceback
 import os
+import uuid
 from datetime import datetime, time
 try:
     from zoneinfo import ZoneInfo  # Python 3.9+
@@ -13,9 +14,9 @@ except ImportError:
     ZoneInfo = None
 
 # ====== Constants ======
-SECRET_NAME = os.getenv("SECRET_NAME")
-TABLE_NAME  = os.getenv("TABLE_NAME")
-REGION_NAME = os.getenv("REGION_NAME")
+SECRET_NAME = os.getenv("SECRET_NAME", "FAQSecrets") # fix this
+TABLE_NAME  = os.getenv("TABLE_NAME", "FAQTable")   # fix this
+REGION_NAME = os.getenv("REGION_NAME", "us-east-1") # fix this
 TIME_ZONE   = os.getenv("TIME_ZONE")
 
 # ====== Secrets (Telegram token) ======
@@ -35,6 +36,137 @@ TG_TOKEN = secrets.get("TELEGRAM_BOT_TOKEN")
 # ====== AWS ======
 dynamodb = boto3.resource("dynamodb", region_name=REGION_NAME)
 table     = dynamodb.Table(TABLE_NAME)
+
+# ====== Lex Bot  ======
+lex_client = boto3.client('lexv2-runtime', region_name=REGION_NAME)
+
+def send_to_lex(user_text: str, session_id: str):
+    """Enhanced Lex integration with proper fallback detection"""
+    try:
+        print(f"Sending to Lex: {user_text}")
+        
+        response = lex_client.recognize_text(
+            botId="I6UVGIKT8S",
+            botAliasId="ZQAI6HOQEZ", 
+            localeId="en_US",
+            sessionId=session_id,
+            text=user_text
+        )
+        
+        print('Lex Response:')
+        print(json.dumps(response, indent=2))
+        
+        # Extract response details
+        messages = response.get("messages", [])
+        session_state = response.get("sessionState", {})
+        intent = session_state.get("intent", {})
+        intent_name = intent.get("name", "")
+        intent_state = intent.get("state", "")
+        session_attributes = session_state.get("sessionAttributes", {})
+        
+        # Build reply from messages
+        reply = ""
+        if messages:
+            reply = "\n".join(msg.get("content", "") for msg in messages if msg.get("content"))
+        
+        # Determine if Lex successfully handled the request
+        lex_handled = is_lex_handled_successfully(intent_name, intent_state, reply, session_attributes)
+        
+        print(f"Lex reply: {reply}")
+        print(f"Intent: {intent_name}, State: {intent_state}, Handled: {lex_handled}")
+        
+        return {
+            "reply": reply,
+            "handled": lex_handled,
+            "intent": intent_name,
+            "state": intent_state,
+            "session_attributes": session_attributes
+        }
+            
+    except Exception as e:
+        print(f"Lex error: {str(e)}")
+        traceback.print_exc()
+        return {
+            "reply": None,
+            "handled": False,
+            "intent": "Error",
+            "state": "Failed",
+            "session_attributes": {}
+        }
+def should_try_lex(user_text):
+    """
+    More conservative approach - only try Lex for specific cases
+    """
+    user_lower = user_text.lower()
+    
+    # Skip Lex for hours queries - FAQ handles these better
+    hours_indicators = ["today", "now", "open now", "close now", "closing time", "right now"]
+    hours_words = ["hour", "open", "close", "business hours", "operating"]
+    
+    is_hours_query = (
+        any(h in user_lower for h in hours_indicators) and 
+        any(h in user_lower for h in hours_words)
+    )
+    if is_hours_query:
+        print(f"Detected hours query, skipping Lex: {user_text}")
+        return False
+    
+    # Only try Lex for very specific order-related queries
+    order_keywords = [
+        "track my order", "order status", "where is my order",
+        "track order", "find my order", "order tracking"
+    ]
+    if any(keyword in user_lower for keyword in order_keywords):
+        print(f"Detected order-related query, trying Lex: {user_text}")
+        return True
+    
+    # Very specific thank you phrases
+    if user_lower in ["thank you", "thanks", "thank", "appreciate it"]:
+        print(f"Detected thank you query, trying Lex: {user_text}")
+        return True
+    
+    # Very specific goodbye phrases  
+    if user_lower in ["bye", "goodbye", "stop", "end", "quit", "exit"]:
+        print(f"Detected goodbye query, trying Lex: {user_text}")
+        return True
+    
+    # For everything else, use FAQ directly
+    print(f"Using FAQ for: {user_text}")
+    return False
+def is_lex_handled_successfully(intent_name, intent_state, reply, session_attributes):
+    """Determine if Lex successfully handled the request"""
+    # Check for explicit fallback signals
+    if session_attributes.get("fallbackToFAQ") == "true":
+        return False
+    
+    # FallbackIntent means Lex didn't understand
+    if intent_name == "FallbackIntent":
+        return False
+    
+    # No reply means it wasn't handled
+    if not reply or not reply.strip():
+        return False
+    
+    # Check for common fallback phrases
+    fallback_phrases = [
+        "didn't get that", "didn't understand", "i'm not sure",
+        "let me check our knowledge base", "let me check our faq"
+    ]
+    
+    reply_lower = reply.lower()
+    if any(phrase in reply_lower for phrase in fallback_phrases):
+        return False
+    
+    # Your specific intents that should be considered handled
+    handled_intents = ["ThankYouIntent", "StopChat", "help", "TrackOrder"]
+    
+    if intent_name in handled_intents:
+        valid_states = ["Fulfilled", "InProgress", "ReadyForFulfillment"]
+        if intent_state in valid_states:
+            return True
+    
+    return False
+
 
 # ====== FAQ cache ======
 FAQ_CACHE = None
@@ -56,7 +188,9 @@ def get_faqs():
     global FAQ_CACHE
     if FAQ_CACHE is None:
         FAQ_CACHE = fetch_all()
+        # print("This is FAQ " + FAQ_CACHE)
     return FAQ_CACHE
+
 
 # ====== Hours helpers (dynamic “today/now”) ======
 WEEKLY_HOURS = {
@@ -111,7 +245,6 @@ def looks_like_today_hours(q: str) -> bool:
 
 
 # ====== Improved matching for question1..16 ======
-
 STOP = {
     "the","a","an","to","for","is","are","am","be","was","were",
     "do","does","did","you","your","our","we","i","it","of","on",
@@ -140,20 +273,21 @@ def gather_questions(item):
 
 # ====== Matching (static FAQ) ======
 def score_item(item, query):
-    ql = (query or "").lower().strip()
-    question_text = str(item.get("question", "")).lower().strip()
-    if not question_text:
-        return (0, 0)
-    if ql == question_text:
-        return (3, len(question_text))
-    if ql in question_text or question_text in ql:
-        return (2, len(question_text))
-    qtoks = set(ql.split())
-    itoks = set(question_text.split())
-    overlap = len(qtoks & itoks)
-    return (1 if overlap else 0, overlap)
+#    ql = (query or "").lower().strip()
+#    question_text = str(item.get("question", "")).lower().strip()
+#    if not question_text:
+#        return (0, 0)
+#    if ql == question_text:
+#        return (3, len(question_text))
+#    if ql in question_text or question_text in ql:
+#        return (2, len(question_text))
+#    qtoks = set(ql.split())
+#    itoks = set(question_text.split())
+#    overlap = len(qtoks & itoks)
+#    return (1 if overlap else 0, overlap)
 
 
+################################
     """
     Score similarity between user query and all question variants.
     Returns (score_level, overlap_count).
@@ -182,22 +316,166 @@ def score_item(item, query):
     # weak overlap
     return (1 if overlap else 0, overlap)
 
-def best_answer(user_text):
+
+# ---- matching knobs ----
+MIN_OVERLAP  = 2      # require at least 2 content-word overlaps (unless exact/substring)
+TIE_DELTA    = 1      # if top2 overlaps differ by <= 1 and not exact, ask to rephrase
+LOG_MATCHING = True   # set False to silence logs
+
+# Group the most common intent words users type.
+INTENT_GROUPS = [
+    {"return", "returns", "refund", "refunds", "exchange", "exchanges"},
+    {"coupon", "coupons", "voucher", "vouchers", "promo", "promocode", "discount"},
+    {"delivery","shipping"},
+    {"chat", "person", "human", "talk", "customer", "live", "directly"},
+    {"greetings", "hey", "good afternoon", "evening", "hi", "hello", "yo", "whats up", "sup", "morning ", "good evening"},
+    {"Halal", "muslim"},
+    {"inventory", "stock", "product"},
+    {"cancel"}, 
+    {"links", "link", "website", "menu"}, 
+    {"lost", "found", "item", "items"},
+    {"pricing", "price", "prices"}, 
+    {"vegetarian", "meat-free", "Veg-friendly"},
+    {"orders", "order"} , 
+    {"cigarette", "tobacco", "cigarettes", "cigars", "smoking"},
+    {"gift-cards", "gift card"},
+    {"pickup", "pick up"},
+    {"payment", "cash", "card", "e-wallets", "mobile payments"},
+    {"alcohol", "liquor", "wine", "alcohols"},
+    {"support", "customer service", "human", "customer"},
+    {"free shipping",  "free delivery", "shipping"},
+    {"store-info", "store hours", "opening hours", "close", "business hours", "time"},
+    {"rewards", "points", "reward", "membership program"}
+]
+
+def intent_gate_candidates(faqs, query_tokens):
+    """
+    If the query clearly hits a topic group (e.g., returns or coupons),
+    keep only items whose combined question text contains at least one word
+    from that group. Otherwise, return faqs unchanged.
+    """
+    for group in INTENT_GROUPS:
+        if query_tokens & group:
+            gated = []
+            for it in faqs:
+                if set(tokens(gather_questions(it))) & group:
+                    gated.append(it)
+            return gated if gated else faqs
+    return faqs
+
+def _score_tuple(query_norm: str, item_text_norm: str, overlap: int, raw_len: int):
+    """Score tuple used for sorting (higher is better)."""
+    if query_norm == item_text_norm:
+        es = 2
+    elif (query_norm in item_text_norm) or (item_text_norm in query_norm):
+        es = 1
+    else:
+        es = 0
+    return (es, overlap, raw_len)
+
+def score_item(item, query):
+    """Score against ALL question variants (question..question16)."""
+    qn = normalize(query)
+    qtok = set(tokens(query))
+
+    hay_raw = gather_questions(item)      # you already have this helper
+    hn = normalize(hay_raw)
+    htok = set(tokens(hay_raw))
+
+    if not htok:
+        return (0, 0, 0, hay_raw)
+
+    overlap = len(qtok & htok)
+    es, ov, ln = _score_tuple(qn, hn, overlap, len(hay_raw))
+    return (es, ov, ln, hay_raw)          # keep raw for logging
+
+def best_answer(user_text: str) -> str:
     query = (user_text or "").strip()
     if not query:
         return "Hi! Ask me about opening hours, delivery, or returns."
-    best_item, best_score = None, (-1, 0)
-    for it in get_faqs():
-        s = score_item(it, query)
-        if s > best_score:
-            best_score, best_item = s, it
-    if best_item and best_score[0] > 0:
-        return best_item.get("answer", "No answer stored.")
-    return "Sorry, I couldn’t find that. Try: opening hours, delivery, returns."
 
-def choose_reply(user_text: str) -> str:
-    if user_text and looks_like_today_hours(user_text):
+    faqs = get_faqs()
+    print("Our FAQs")
+    print(faqs)
+    if not faqs:
+        return "Sorry, I don’t have any FAQs yet."
+
+    # Intent gate (e.g., 'return/refund' vs 'coupon/promo')
+    qtok = set(tokens(query))
+    faqs = intent_gate_candidates(faqs, qtok)
+
+    # Score candidates
+    scored = []
+    for it in faqs:
+        es, ov, ln, raw = score_item(it, query)
+        # allow exact/substring even if overlap is small
+        if ov >= MIN_OVERLAP or es > 0:
+            scored.append(((es, ov, ln), it, raw))
+
+    if not scored:
+        return "Sorry, I couldn’t find that. Try: returns, delivery, or opening hours."
+
+    # Sort by (exact/substring, overlap, length)
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    # Optional: log top matches to CloudWatch for debugging
+    if LOG_MATCHING:
+        print("QUERY:", query)
+        for rank, (sc, it, raw) in enumerate(scored[:5], 1):
+            ident = it.get("id") or it.get("category") or it.get("question", "")[:60]
+            print(f"  #{rank} score={sc} id={ident!r} sampleQ={raw[:80]!r}")
+
+    # Tie-handling: if top2 are very close and not exact, ask user to clarify
+    top = scored[0]
+    if len(scored) > 1:
+        (es1, ov1, _), it1, raw1 = scored[0]
+        (es2, ov2, _), it2, raw2 = scored[1]
+        if es1 == es2 and abs(ov1 - ov2) <= TIE_DELTA and ov1 < 4:
+            options = []
+            for _, it, raw in scored[:3]:
+                label = it.get("question") or it.get("question2") or raw[:60]
+                if label:
+                    options.append(f"“{label}”")
+            opts = " or ".join(options)
+            return f"Did you mean {opts}? (Please rephrase.)"
+
+    # Confident winner
+    best_item = top[1]
+    return best_item.get("answer", "No answer stored.")
+
+
+
+#def choose_reply(user_text: str) -> str:
+    #if user_text and looks_like_today_hours(user_text):
+     #   return hours_message_for_today()
+    #return best_answer(user_text)
+def choose_reply(user_text: str, chat_id: str = None) -> str:
+    """Enhanced reply logic with proper Lex-FAQ integration"""
+    if not user_text or not user_text.strip():
+        return "Hi! Ask me about opening hours, delivery, or returns."
+    
+    # Handle hours queries directly with FAQ (faster than Lex)
+    if looks_like_today_hours(user_text):
+        print("Detected hours query - using direct FAQ response")
         return hours_message_for_today()
+    
+    # Determine if we should try Lex
+    if chat_id and should_try_lex(user_text):
+        print("Query matches Lex criteria, trying Lex first...")
+        
+        lex_response = send_to_lex(user_text, chat_id)
+        
+        if lex_response["handled"]:
+            print(f"✅ Lex handled successfully: {lex_response['intent']}")
+            return lex_response["reply"]
+        else:
+            print(f"❌ Lex didn't handle (Intent: {lex_response['intent']}, State: {lex_response['state']})")
+            print("Falling back to FAQ system...")
+    else:
+        print("Query doesn't match Lex criteria, using FAQ directly")
+    
+    # Use FAQ system as fallback or primary
+    print("Using FAQ system")
     return best_answer(user_text)
 
 # ====== Telegram send ======
@@ -256,8 +534,9 @@ def lambda_handler(event, context):
     chat_id, user_text = extract_message(payload)
 
     # Telegram webhook
-    if chat_id:
-        reply = choose_reply(user_text)          # <-- DO NOT overwrite later
+    if chat_id:      
+        #reply = choose_reply(user_text)          # <-- DO NOT overwrite later
+        reply = choose_reply(user_text, str(chat_id))  # Pass chat_id for Lex session
         tg_send(chat_id, reply, TG_TOKEN)
         return {"statusCode": 200, "headers": {"Content-Type": "application/json"},
                 "body": json.dumps({"status": "ok"})}

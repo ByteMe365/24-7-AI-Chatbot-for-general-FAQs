@@ -172,5 +172,6 @@
         }
     ],
     "Count": 10,
-    "ScannedCount": 10
+    "ScannedCount": 10,
+    "ConsumedCapacity": null
 }

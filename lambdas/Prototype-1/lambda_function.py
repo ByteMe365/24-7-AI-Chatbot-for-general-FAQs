@@ -63,23 +63,32 @@ def lambda_handler(event, context):
                 }
 
         elif invocation_source == 'FulfillmentCodeHook':
-            # Check for order in DynamoDB
-            order_id = slots.get('OrderID', {}).get('value', {}).get('interpretedValue', '').upper()
-
+            # FIXED: Use get_slot_value function instead of manual extraction
+            order_id = get_slot_value(slots, 'OrderID')
+            
+            if order_id:
+                order_id = order_id.upper().strip()
+            
+            print(f"Looking up OrderID: '{order_id}' in DynamoDB table: {table.table_name}")
+            
             try:
                 response = table.get_item(Key={'OrderID': order_id})
+                print(f"DynamoDB response: {response}")
 
                 if 'Item' in response:
                     order = response['Item']
+                    print(f"Found order: {order}")
                     message = (
-                        f"Your {order['Item']} is currently "
-                        f"{order['OrderStatus']}. It will be delivered in {order['EstimatedTime']}.\n"
+                        f"Found your order! Your {order['Item']} is currently "
+                        f"{order['OrderStatus']}. Estimated delivery: {order['EstimatedTime']}.\n"
                         f"Let me know if you need anything else 😁"
                     )
                 else:
-                    message = f"Sorry, I couldn’t find an order with ID {order_id}."
+                    print(f"No order found with ID: '{order_id}'")
+                    message = f"Sorry, I couldn't find an order with ID '{order_id}'. Please check the order ID and try again."
 
             except Exception as e:
+                print(f"DynamoDB error: {str(e)}")
                 message = f"Error checking order: {str(e)}"
 
             return {
@@ -124,12 +133,34 @@ def lambda_handler(event, context):
                 "messages": [
                     {
                         "contentType": "PlainText",
-                        "content": "Okay, let’s check your order. What’s your Order ID?"
+                        "content": "Okay, let's check your order. What's your Order ID?"
                     }
                 ]
             }
 
-        # Case 2: Normal fallback
+        # Case 2: User said "no"
+        elif session_attributes.get("pendingAction") == "TrackOrder" and user_input in ["no", "nah", "nope", "not now"]:
+            session_attributes.pop("pendingAction", None)
+
+            return {
+                "sessionState": {
+                    "dialogAction": {"type": "Close"},
+                    "intent": {
+                        "name": "TrackOrder",
+                        "slots": {"OrderID": None},
+                        "state": "Fulfilled"
+                    },
+                    "sessionAttributes": session_attributes
+                },
+                "messages": [
+                    {
+                        "contentType": "PlainText",
+                        "content": "No problem! Let me know if you need help with anything else."
+                    }
+                ]
+            }
+
+        # Case 3: Normal fallback
         else:
             session_attributes["pendingAction"] = "TrackOrder"
 
@@ -146,7 +177,7 @@ def lambda_handler(event, context):
                 "messages": [
                     {
                         "contentType": "PlainText",
-                        "content": "Sorry, I didn’t get that. Do you want to check your order?"
+                        "content": "Sorry, I didn't get that. Do you want to check your order?"
                     }
                 ]
             }
