@@ -243,6 +243,42 @@ Common Issues:
   - Timeout: Increase Lambda timeout if DynamoDB is slow
 
 
+# 3. API-Gateway
+
+Purpose:
+
+Amazon API Gateway serves as the secure entry point for our chatbot system.
+It exposes a public HTTPS endpoint that routes user questions to an AWS Lambda function, which then searches DynamoDB and returns the best answer.
+
+Key Functions
+  - Single Endpoint: Provides a URL (e.g. https://<api-id>.execute-api.us-east-1.amazonaws.com/faq) that external clients (Telegram bot, Postman tests, web or mobile apps) can call.
+  - Routing: Forwards all POST /faq requests to our Lambda function chatbotFAQsearch.
+  - Request/Response Handling: Accepts JSON requests and passes them to Lambda as an event; sends Lambda’s JSON reply back to the client.
+  - Security & Scaling: Supports IAM roles, API keys, throttling, and monitoring (CloudWatch) to secure and scale the endpoint.
+  - Integration: Can connect to multiple consumers (Telegram webhook, future front-end apps) without changing backend code.
+
+```
+User (Telegram / Web)  →  API Gateway  →  Lambda (chatbotFAQsearch)  →  DynamoDB (ChatbotFAQ table)
+```
+
+Example Route
+
+  - Method: POST
+  - Resource Post: /faq
+  - Integration Target: chatbotFAQsearch (Lambda)
+
+
+Sample Request:
+```
+curl -X POST "https://<api-id>.execute-api.us-east-1.amazonaws.com/faq" \
+     -H "Content-Type: application/json" \
+     -d '{"message":"What are your store hours?"}'
+```
+
+
+
+
+
 
 
 
