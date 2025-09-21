@@ -199,6 +199,19 @@ CloudWatch Metrics to Monitor:
     -Throttles
 
 
+Testing
+
+Test event format:
+```json
+{
+  "inputTranscript": "store hours"
+}
+```
+
+
+
+
+
 
 
 
