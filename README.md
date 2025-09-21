@@ -81,3 +81,14 @@ User Input: "store hours"
     -Check FAQ 1: "What are your store hours?" → Contains "store" 
     -Match found! Return corresponding answer
 ```
+
+Response Handling
+Successful Match:
+``` json
+{
+  "statusCode": 200,
+  "headers": {"Content-Type": "application/json"},
+  "body": "{\"reply\": \"Our stores are open Monday-Saturday 9AM-9PM, Sunday 10AM-7PM\"}"
+}
+```
+
