@@ -209,6 +209,13 @@ Test event format:
 ```
 
 
+Expected Response
+
+The function should return a properly formatted answer from the DynamoDB FAQ database
+
+
+Limitations:
+-Simple Keyword Matching: Does not use NLP or sematic
 
 
 
