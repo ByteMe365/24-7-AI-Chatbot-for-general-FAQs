@@ -183,14 +183,16 @@ Performance Characteristics
 
 Monitoring and Logging
 
-The function includes comprehensive logging:
-    -User input received
-    -DynamoDB scan results
-    -Match found/not found
-    -Error conditions with stack traces
 
+The function includes comprehensive logging:
+
+    -User input received
+    -DynamoDB scan result
+    -Match found/not found
+    -Error conditions woth stack traces
 
 CloudWatch Metrics to Monitor:
+
     -Invocation count
     -Duration
     -Error rate
