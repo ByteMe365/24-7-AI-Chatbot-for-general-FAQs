@@ -82,9 +82,10 @@ User Input: "store hours"
     -Match found! Return corresponding answer
 ```
 
+
 Response Handling
 
-Successful Match:
+Successful match:
 ``` json
 {
   "statusCode": 200,
@@ -92,4 +93,90 @@ Successful Match:
   "body": "{\"reply\": \"Our stores are open Monday-Saturday 9AM-9PM, Sunday 10AM-7PM\"}"
 }
 ```
+
+No match found:
+```json
+{
+  "statusCode": 200,
+  "headers": {"Content-Type": "application/json"},
+  "body": "{\"reply\": \"I'm sorry, I couldn't find an answer to your question. Please contact customer service for assistance.\"}"
+}
+```
+
+Error handling:
+```json
+{
+  "statusCode": 500,
+  "headers": {"Content-Type": "application/json"},
+  "body": "{\"reply\": \"Sorry, I'm having technical difficulties. Please try again later.\"}"
+}
+```
+
+Required Permissions
+
+The Lambda execution role needs the following IAM permissions:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:Scan",
+        "dynamodb:GetItem"
+      ],
+      "Resource": "arn:aws:dynamodb:REGION:ACCOUNT:table/ChatbotFAQ"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }
+  ]
+}
+```
+
+Environment Variables
+
+No environment variables required. The function uses hardcoded table name ChatbotFAQ.
+
+Integration Options
+
+1. Lambda Function URL
+   
+    -Direct HTTP endpoint for web applications
+   
+    -Input: JSON body with inputTranscript field
+   
+    -Output: Simple JSON response with reply field
+
+2. API Gateway HTTP API
+   
+    -RESTful API wrapper around Lambda function
+   
+    -Input: JSON body with message field
+   
+    -Output: Structured HTTP response
+
+3. Direct Invocation
+   
+    -For testing and development
+   
+    -Input: Custom event object
+   
+    -Output: Structured response
+
+
+
+
+
+
+
+
+
+
 
