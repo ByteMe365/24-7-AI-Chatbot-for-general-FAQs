@@ -245,12 +245,27 @@ Common Issues:
 
 # 3. API-Gateway
 
+This project uses Amazon API Gateway as the HTTPS entry point for the Telegram chatbot.
+
 Purpose:
 
-Amazon API Gateway serves as the secure entry point for our chatbot system.
-It exposes a public HTTPS endpoint that routes user questions to an AWS Lambda function, which then searches DynamoDB and returns the best answer.
+API Gateway provides a secure, public HTTPS endpoint that Telegram can call (via a webhook).
+When a user sends a message to the bot, Telegram immediately sends an HTTP POST request to this endpoint.
 
-Key Functions
+Flow:
+1. Telegram User → Telegram Server: A user sends a message to the bot.
+2. Telegram Server → API Gateway: Telegram forwards the message as a JSON payload to the API Gateway route (for example, POST /telegram).
+3. API Gateway → AWS Lambda: API Gateway passes the request to the associated Lambda function using a Lambda-proxy integration.
+4. Lambda → DynamoDB → Telegram: The Lambda function processes the text, looks up or generates the answer (using DynamoDB and any extra logic like time-aware store hours), and replies to the user through the Telegram sendMessage API.
+
+Why API Gateway is important
+  - Provides a public HTTPS URL with SSL/TLS so Telegram can reach the bot without extra certificates.
+  - Handles routing and authorization (you can attach IAM authorizers, secret tokens, or throttling if needed).
+  - Supports logging and monitoring of requests through Amazon CloudWatch.
+
+In short, API Gateway acts as the front door of the chatbot, safely exposing the Lambda function to Telegram and other clients (like Postman or curl) without exposing internal AWS resources directly.
+
+Key Functions:
   - Single Endpoint: Provides a URL (e.g. https://<api-id>.execute-api.us-east-1.amazonaws.com/faq) that external clients (Telegram bot, Postman tests, web or mobile apps) can call.
   - Routing: Forwards all POST /faq requests to our Lambda function chatbotFAQsearch.
   - Request/Response Handling: Accepts JSON requests and passes them to Lambda as an event; sends Lambda’s JSON reply back to the client.
@@ -261,7 +276,7 @@ Key Functions
 User (Telegram / Web)  →  API Gateway  →  Lambda (chatbotFAQsearch)  →  DynamoDB (ChatbotFAQ table)
 ```
 
-Example Route
+Example Route:
 
   - Method: POST
   - Resource Post: /faq
@@ -274,6 +289,7 @@ curl -X POST "https://<api-id>.execute-api.us-east-1.amazonaws.com/faq" \
      -H "Content-Type: application/json" \
      -d '{"message":"What are your store hours?"}'
 ```
+
 
 
 
