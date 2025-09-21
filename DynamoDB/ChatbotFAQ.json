@@ -1,139 +1,574 @@
 {
     "Items": [
         {
-            "question6": {
-                "S": "How many days do I have to return something?"
-            },
-            "question3": {
-                "S": "What is your replacement policy?"
-            },
-            "question4": {
-                "S": "How do I return items?"
-            },
-            "question1": {
-                "S": "What is your return policy?"
-            },
-            "question2": {
-                "S": "Can i return an item?"
-            },
-            "category": {
-                "S": "returns"
-            },
-            "id": {
-                "S": "faq002"
-            },
-            "question7": {
-                "S": "Can I get my money back?"
-            },
-            "answer": {
-                "S": "We accept returns within 30 days with receipt. Items must be in original condition.The replacement policy is same as return policy."
-            },
-            "question8": {
-                "S": "Can I exchange or return goods?"
-            }
+          "id": {
+            "S": "faq001"
+          },
+          "answer": {
+            "S": "Our store is open on Monday-Saturday at 9AM-9PM, and on Sunday at 10AM-7PM"
+          },
+          "category": {
+            "S": "store-info"
+          },
+          "question1": {
+            "S": "what are you store hours?"
+          },
+          "question2": {
+            "S": "What time do you open?"
+          },
+          "question3": {
+            "S": "Opening hours?"
+          },
+          "question4": {
+            "S": "When do you close?"
+          },
+          "question5": {
+            "S": "Business hours?"
+          },
+          "question6": {
+            "S": "What time are you open today?"
+          },
+          "question7": {
+            "S": "What is your operating hours?"
+          }
         },
         {
-            "question5": {
-                "S": "can you send me the menu?"
-            },
-            "question3": {
-                "S": "give me the store link"
-            },
-            "question4": {
-                "S": "direct me to the website"
-            },
-            "question1": {
-                "S": "Can you send me a link to the store's page?"
-            },
-            "question2": {
-                "S": "share the website"
-            },
-            "category": {
-                "S": "links"
-            },
-            "link": {
-                "S": "http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com"
-            },
-            "id": {
-                "S": "faq019"
-            },
-            "answer": {
-                "S": "Here�s the product page:  http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com  Tap the link to open it in your browser."
-            }
+          "id": {
+            "S": "faq002"
+          },
+          "answer": {
+            "S": "We accept returns within 30 days with receipt. Items must be in original condition.The replacement policy is same as return policy."
+          },
+          "category": {
+            "S": "returns"
+          },
+          "question1": {
+            "S": "What is your return policy?"
+          },
+          "question2": {
+            "S": "Can i return an item?"
+          },
+          "question3": {
+            "S": "What is your replacement policy?"
+          },
+          "question4": {
+            "S": "How do I return items?"
+          },
+          "question6": {
+            "S": "How many days do I have to return something?"
+          },
+          "question7": {
+            "S": "Can I get my money back?"
+          },
+          "question8": {
+            "S": "Can I exchange or return goods?"
+          }
         },
         {
-            "question5": {
-                "S": "what are the steps I need to follow to add a coupon code?"
-            },
-            "question3": {
-                "S": "where should i add the coupon code?"
-            },
-            "question4": {
-                "S": "how many times can i use the coupon code?"
-            },
-            "question1": {
-                "S": "How do I use a coupon code?"
-            },
-            "question2": {
-                "S": "when do i need to add the coupons code?"
-            },
-            "category": {
-                "S": "coupon"
-            },
-            "id": {
-                "S": "faq010"
-            },
-            "answer": {
-                "S": "Enter your coupon code at checkout in the 'Promo Code' field before completing your purchase. Each coupon code can be used only one time."
-            }
+          "id": {
+            "S": "faq003"
+          },
+          "answer": {
+            "S": "Free shipping on orders over $50.For orders under $50, the shipping fee is $5.99."
+          },
+          "category": {
+            "S": " Free shipping"
+          },
+          "question1": {
+            "S": "Do you offer free shipping?"
+          },
+          "question2": {
+            "S": "Free delivery available?"
+          },
+          "question3": {
+            "S": "Is delivery free?"
+          },
+          "question4": {
+            "S": "Any shipping charges?"
+          },
+          "question5": {
+            "S": "What is the free shipping policy?"
+          },
+          "question6": {
+            "S": " What is the cost for free delivery?"
+          }
         },
         {
-            "question5": {
-                "S": "Is it possible to cancel after buying?"
-            },
-            "question3": {
-                "S": "I want to cancel my order?"
-            },
-            "question4": {
-                "S": "Cancel order please?"
-            },
-            "question1": {
-                "S": "How do I cancel my order?"
-            },
-            "question2": {
-                "S": "Can I cancel my purchase?"
-            },
-            "category": {
-                "S": "cancel"
-            },
-            "id": {
-                "S": "faq006"
-            },
-            "answer": {
-                "S": "You can cancel your order within 1 hour of placing it by logging into your account or calling customer service at 1-800-555-0123."
-            }
+          "id": {
+            "S": "faq004"
+          },
+          "answer": {
+            "S": "You can track your order using the tracking number sent to your email, or log into your account on our website."
+          },
+          "category": {
+            "S": "orders"
+          },
+          "question1": {
+            "S": "How can I track my order?"
+          },
+          "question2": {
+            "S": "how to stop my order?"
+          },
+          "question3": {
+            "S": "Where is my order?"
+          },
+          "question4": {
+            "S": "Track delivery?"
+          },
+          "question5": {
+            "S": "Order tracking status?"
+          },
+          "question6": {
+            "S": "How do I know where my package is?"
+          },
+          "question7": {
+            "S": "Check my order progress?"
+          }
         },
         {
-            "question5": {
-                "S": "hello"
-            },
-            "question10": {
-                "S": "good afternoon"
-            },
-            "question6": {
-                "S": "yo"
-            },
-            "question3": {
-                "S": "evening"
-            },
-            "question4": {
-                "S": "hi"
-            },
-            "question1": {
-                "S": "hey "
-            },
-            "question2": {
-                "S": "afternoon"
-            },
-            "answer": {
-                "S": 
+          "id": {
+            "S": "faq005"
+          },
+          "answer": {
+            "S": "Yes, we price match identical items from major competitors. Bring in the competitor's ad or show us their website."
+          },
+          "category": {
+            "S": "pricing"
+          },
+          "question1": {
+            "S": "Do you price match?"
+          },
+          "question2": {
+            "S": "Do you match competitor prices?"
+          },
+          "question3": {
+            "S": "Can I get the same price as another store?"
+          },
+          "question4": {
+            "S": "Will you match prices?"
+          },
+          "question5": {
+            "S": "Price comparison policy?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq006"
+          },
+          "answer": {
+            "S": "You can cancel your order within 1 hour of placing it by logging into your account or calling customer service at 1-800-555-0123."
+          },
+          "category": {
+            "S": "cancel"
+          },
+          "question1": {
+            "S": "How do I cancel my order?"
+          },
+          "question2": {
+            "S": "Can I cancel my purchase?"
+          },
+          "question3": {
+            "S": "I want to cancel my order?"
+          },
+          "question4": {
+            "S": "Cancel order please?"
+          },
+          "question5": {
+            "S": "Is it possible to cancel after buying?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq007"
+          },
+          "answer": {
+            "S": "Gift cards are available in-store and online in amounts from $10 to $500. The gift cards expires within 2 months."
+          },
+          "category": {
+            "S": "gift-cards"
+          },
+          "question1": {
+            "S": "Do you have gift cards?"
+          },
+          "question2": {
+            "S": "Can I buy a gift card?"
+          },
+          "question3": {
+            "S": "Gift cards are available?"
+          },
+          "question4": {
+            "S": "how long is the gift cards valid ?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq008"
+          },
+          "answer": {
+            "S": "We accept all major credit cards/debit cards,PayPal, Apple Pay, e-wallets like GrabPay, Touch 'n Go, and Boost,Google Pay, and cash in-store."
+          },
+          "category": {
+            "S": "payment"
+          },
+          "question1": {
+            "S": "What payment methods do you accept?"
+          },
+          "question2": {
+            "S": "Do you accept cash?"
+          },
+          "question3": {
+            "S": "Can I pay by card?"
+          },
+          "question4": {
+            "S": "Do you accept e-wallets?"
+          },
+          "question5": {
+            "S": "Mobile payments allowed?"
+          },
+          "question6": {
+            "S": "What kind of payments do you support?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq009"
+          },
+          "answer": {
+            "S": "You can pick up your order by going to the store .Yes  , you can pick up your order from the store? You need to bring your invoice or your order id."
+          },
+          "category": {
+            "S": "pickup"
+          },
+          "question1": {
+            "S": "How can i pick up my order?"
+          },
+          "question2": {
+            "S": "Can i pick up my order from the store?"
+          },
+          "question3": {
+            "S": "What do I need to bring with me to pick up my order?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq010"
+          },
+          "answer": {
+            "S": "Enter your coupon code at checkout in the 'Promo Code' field before completing your purchase. Each coupon code can be used only one time."
+          },
+          "category": {
+            "S": "coupon"
+          },
+          "question1": {
+            "S": "How do I use a coupon code?"
+          },
+          "question2": {
+            "S": "when do i need to add the coupons code?"
+          },
+          "question3": {
+            "S": "where should i add the coupon code?"
+          },
+          "question4": {
+            "S": "how many times can i use the coupon code?"
+          },
+          "question5": {
+            "S": "what are the steps I need to follow to add a coupon code?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq011"
+          },
+          "answer": {
+            "S": "You can sign up for restock notifications on the product page. We'll email you when it's back in stock."
+          },
+          "category": {
+            "S": "inventory"
+          },
+          "question1": {
+            "S": "What if an item is out of stock?"
+          },
+          "question2": {
+            "S": "Item not available?"
+          },
+          "question3": {
+            "S": "Do you restock?"
+          },
+          "question4": {
+            "S": "Product unavailable?"
+          },
+          "question5": {
+            "S": "When will this be available again?"
+          },
+          "question6": {
+            "S": "Out of stock products?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq012"
+          },
+          "answer": {
+            "S": "Join our rewards program to earn points on every purchase and get exclusive member discounts."
+          },
+          "category": {
+            "S": "rewards"
+          },
+          "question1": {
+            "S": "Do you have a reward program?"
+          },
+          "question2": {
+            "S": "How do I earn points?"
+          },
+          "question3": {
+            "S": "Do you have member rewards?"
+          },
+          "question4": {
+            "S": "Is there a membership program?"
+          },
+          "question5": {
+            "S": "Do you offer rewards benefits?"
+          },
+          "question6": {
+            "S": "Rewards card available?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq013"
+          },
+          "answer": {
+            "S": "Yes! You can chat with our staff directly/live between 9AM and 10PM. After 10PM, please leave your message and we’ll respond the next day."
+          },
+          "category": {
+            "S": "support"
+          },
+          "question1": {
+            "S": "Can I chat with a staff member directly?"
+          },
+          "question2": {
+            "S": "I want to talk to customer service."
+          },
+          "question3": {
+            "S": "Can I speak to a person?"
+          },
+          "question4": {
+            "S": "Need live chat support?"
+          },
+          "question5": {
+            "S": "Talk to human agent?"
+          },
+          "question6": {
+            "S": "Customer support chat?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq014"
+          },
+          "answer": {
+            "S": "Yes, most of our food products are muslim friendly and halal-certified. Look for the halal logo on packaging."
+          },
+          "category": {
+            "S": "Halal options "
+          },
+          "question1": {
+            "S": "Is your food halal?"
+          },
+          "question2": {
+            "S": "Do you have halal-certified products?"
+          },
+          "question3": {
+            "S": "Halal meals available?"
+          },
+          "question4": {
+            "S": "Is the food muslim friendly?"
+          },
+          "question5": {
+            "S": "Do you carry halal items?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq015"
+          },
+          "answer": {
+            "S": "Yes, we have a wide range of vegetarian-friendly meals and snacks."
+          },
+          "category": {
+            "S": "vegetarian options "
+          },
+          "question1": {
+            "S": "Vegetarian meals available?"
+          },
+          "question2": {
+            "S": "Do you sell meat-free items?"
+          },
+          "question3": {
+            "S": "Veg-friendly options?"
+          },
+          "question4": {
+            "S": "Vegetarian snacks"
+          },
+          "question5": {
+            "S": "Vegetarian choices"
+          },
+          "question6": {
+            "S": "Do you have vegetarian food?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq016"
+          },
+          "answer": {
+            "S": "Yes, selected stores sell alcohol. Availability depends on local regulations."
+          },
+          "category": {
+            "S": "alcohol sale"
+          },
+          "question1": {
+            "S": "Do you sell alcohol?"
+          },
+          "question2": {
+            "S": "Beer available?"
+          },
+          "question3": {
+            "S": "Do you have liquor?"
+          },
+          "question4": {
+            "S": "Do you sell wine?"
+          },
+          "question5": {
+            "S": "Alcohol in your store?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq017"
+          },
+          "answer": {
+            "S": "Yes, we sell cigarettes and tobacco products in compliance with legal age restrictions."
+          },
+          "category": {
+            "S": "cigarette and tobacco sale "
+          },
+          "question1": {
+            "S": "Do you sell cigarettes or tobacco?"
+          },
+          "question2": {
+            "S": "Do you sell cigarettes?"
+          },
+          "question3": {
+            "S": "Do you have cigars?"
+          },
+          "question4": {
+            "S": "Do you have smoking products?"
+          },
+          "question5": {
+            "S": "Tobacco products available?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq018"
+          },
+          "answer": {
+            "S": "Please contact the store staff directly. We maintain a lost & found for customer belongings."
+          },
+          "category": {
+            "S": "lost-found"
+          },
+          "question1": {
+            "S": "What should I do if I lost something in your store?"
+          },
+          "question2": {
+            "S": "Lost item in store"
+          },
+          "question3": {
+            "S": "I left something in your store "
+          },
+          "question4": {
+            "S": "Where do I report lost items?"
+          },
+          "question5": {
+            "S": "I dropped something in store"
+          }
+        },
+        {
+          "id": {
+            "S": "faq019"
+          },
+          "answer": {
+            "S": "Here’s the product page:  http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com  Tap the link to open it in your browser."
+          },
+          "category": {
+            "S": "links"
+          },
+          "link": {
+            "S": "http://minimarket-bytemeretail.s3-website-us-east-1.amazonaws.com"
+          },
+          "question1": {
+            "S": "Can you send me a link to the store's page?"
+          },
+          "question2": {
+            "S": "share the website"
+          },
+          "question3": {
+            "S": "give me the store link"
+          },
+          "question4": {
+            "S": "direct me to the website"
+          },
+          "question5": {
+            "S": "can you send me the menu?"
+          }
+        },
+        {
+          "id": {
+            "S": "faq020"
+          },
+          "answer": {
+            "S": "Hey there! 👋 How can I help you today?"
+          },
+          "category": {
+            "S": "greetings"
+          },
+          "question1": {
+            "S": "hey "
+          },
+          "question10": {
+            "S": "good afternoon"
+          },
+          "question2": {
+            "S": "afternoon"
+          },
+          "question3": {
+            "S": "evening"
+          },
+          "question4": {
+            "S": "hi"
+          },
+          "question5": {
+            "S": "hello"
+          },
+          "question6": {
+            "S": "yo"
+          },
+          "question7": {
+            "S": "whats up"
+          },
+          "question8": {
+            "S": "sup"
+          },
+          "question9": {
+            "S": "morning "
+          },
+          "question911": {
+            "S": "good evening "
+          }
+        }
+    ],
+    "Count": 20,
+    "ScannedCount": 20
+}
