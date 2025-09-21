@@ -73,11 +73,15 @@ Search Algorithm
     -Returns the first matching FAQ item
 4. Response Generation: Formats the answer for the calling service
 
+Search logic example:
 User Input: "store hours"
 Split Words: ["store", "hours"]
 Search Process:
-  - Check FAQ 1: "What are your store hours?" → Contains "store" ✓
+  - Check FAQ 1: "What are your store hours?" → Contains "store" 
   - Match found! Return corresponding answer
+
+
+
 
 
 Response Handling
