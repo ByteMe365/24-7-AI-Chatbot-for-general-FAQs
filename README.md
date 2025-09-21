@@ -217,11 +217,30 @@ Test event format:
 
 Expected Response
 
-The function should return a properly formatted answer from the DynamoDB FAQ database
+  The function should return a properly formatted answer from the DynamoDB FAQ database
 
 
 Limitations:
--Simple Keyword Matching: Does not use NLP or sematic
+  - Simple Keyword Matching: Does not use NLP or sematic
+  - Sequential Search: Checks FAQs in order, returns first match
+  - Case Sensitivity: Input converted to lowercase for matching
+  - Exact Word Matching: Requires exact word matches, no fuzzy logic
+
+Future Enhancements:
+  - Implement fuzzy string matching for better question recognition
+  - Add caching layer to reduce DynamoDB calls
+  - Support for synonyms and alternative phrasings
+  - Analytics tracking for popular questions
+  - Multi-language support
+
+
+Troubleshooting
+
+Common Issues:
+  - Permission Denied: Check IAM role has DynamoDB read access
+  - Table Not Found: Verify DynamoDB table exists and is named correctly
+  - No Matches: Check if FAQ questions contain keywords from user input
+  - Timeout: Increase Lambda timeout if DynamoDB is slow
 
 
 
