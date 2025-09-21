@@ -170,8 +170,31 @@ Integration Options
    
     -Output: Structured response
 
+Performance Characteristics
+
+-Cold Start: ~300-500ms (first invocation)
+
+-Warm Execution: ~50-100ms (subsequent calls)
+
+-DynamoDB Scan: ~100-200ms (depends on table size)
+
+-Memory Usage: ~60-80MB typical
 
 
+Monitoring and Logging
+
+The function includes comprehensive logging:
+    -User input received
+    -DynamoDB scan results
+    -Match found/not found
+    -Error conditions with stack traces
+
+
+CloudWatch Metrics to Monitor:
+    -Invocation count
+    -Duration
+    -Error rate
+    -Throttles
 
 
 
