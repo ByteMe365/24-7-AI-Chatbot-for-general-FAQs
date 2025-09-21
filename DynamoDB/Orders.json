@@ -1,0 +1,176 @@
+{
+    "Items": [
+        {
+            "OrderStatus": {
+                "S": "Delivered"
+            },
+            "Time": {
+                "S": "14:45"
+            },
+            "Item": {
+                "S": "BBQ Ribs"
+            },
+            "EstimatedTime": {
+                "S": "30 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1010"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "Completed"
+            },
+            "Time": {
+                "S": "13:15"
+            },
+            "Item": {
+                "S": "Pasta Carbonara"
+            },
+            "EstimatedTime": {
+                "S": "30 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1004"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "In Progress"
+            },
+            "Time": {
+                "S": "12:30"
+            },
+            "Item": {
+                "S": "Pizza"
+            },
+            "EstimatedTime": {
+                "S": "20 minutes"
+            },
+            "OrderID": {
+                "S": "ORD123"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "Delivered"
+            },
+            "Time": {
+                "S": "12:45"
+            },
+            "Item": {
+                "S": "Cheeseburger"
+            },
+            "EstimatedTime": {
+                "S": "15 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1002"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "Delivered"
+            },
+            "Time": {
+                "S": "14:00"
+            },
+            "Item": {
+                "S": "Sushi Set"
+            },
+            "EstimatedTime": {
+                "S": "35 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1007"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "Cancelled"
+            },
+            "Time": {
+                "S": "13:45"
+            },
+            "Item": {
+                "S": "Steak"
+            },
+            "EstimatedTime": {
+                "S": "10 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1006"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "Preparing"
+            },
+            "Time": {
+                "S": "14:30"
+            },
+            "Item": {
+                "S": "Fish Tacos"
+            },
+            "EstimatedTime": {
+                "S": "20 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1009"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "Preparing"
+            },
+            "Time": {
+                "S": "13:30"
+            },
+            "Item": {
+                "S": "Veggie Wrap"
+            },
+            "EstimatedTime": {
+                "S": "20 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1005"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "In Progress"
+            },
+            "Time": {
+                "S": "13:00"
+            },
+            "Item": {
+                "S": "Chicken Sandwich"
+            },
+            "EstimatedTime": {
+                "S": "25 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1003"
+            }
+        },
+        {
+            "OrderStatus": {
+                "S": "In Progress"
+            },
+            "Time": {
+                "S": "14:15"
+            },
+            "Item": {
+                "S": "Chicken Curry"
+            },
+            "EstimatedTime": {
+                "S": "40 minutes"
+            },
+            "OrderID": {
+                "S": "ORD1008"
+            }
+        }
+    ],
+    "Count": 10,
+    "ScannedCount": 10
+}
